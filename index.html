@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analizador de Maníes</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Analizador de Maníes</h1>
+        
+        <div class="upload-section">
+            <button id="takePhotoBtn" class="button">Tomar Foto</button>
+            <input type="file" id="fileInput" accept="image/*" style="display: none;">
+            <button id="selectPhotoBtn" class="button">Seleccionar Foto</button>
+        </div>
+        
+        <div class="camera-container" id="cameraContainer">
+            <video id="video" autoplay playsinline></video>
+            <button id="captureBtn" class="button">Capturar</button>
+            <button id="cancelCameraBtn" class="button">Cancelar</button>
+        </div>
+        
+        <div style="text-align: center;">
+            <img id="imagePreview" alt="Vista previa de imagen">
+            <button id="analyzeBtn" class="button analyze" style="display: none;">Procesar Imagen</button>
+        </div>
+        
+        <div id="results">
+            <h2>Resultados del Análisis</h2>
+            
+            <div class="color-row">
+                <div class="color-swatch" style="background-color: white;"></div>
+                <div>Blanco:</div>
+                <div class="percentage-bar-container">
+                    <div class="percentage-bar" id="whiteBar"></div>
+                </div>
+                <div class="percentage-text" id="whitePercentage">0.0%</div>
+            </div>
+            
+            <div class="color-row">
+                <div class="color-swatch" style="background-color: yellow;"></div>
+                <div>Amarillo:</div>
+                <div class="percentage-bar-container">
+                    <div class="percentage-bar" id="yellowBar"></div>
+                </div>
+                <div class="percentage-text" id="yellowPercentage">0.0%</div>
+            </div>
+            
+            <div class="color-row">
+                <div class="color-swatch" style="background-color: orange;"></div>
+                <div>Naranja:</div>
+                <div class="percentage-bar-container">
+                    <div class="percentage-bar" id="orangeBar"></div>
+                </div>
+                <div class="percentage-text" id="orangePercentage">0.0%</div>
+            </div>
+            
+            <div class="color-row">
+                <div class="color-swatch" style="background-color: brown;"></div>
+                <div>Marrón:</div>
+                <div class="percentage-bar-container">
+                    <div class="percentage-bar" id="brownBar"></div>
+                </div>
+                <div class="percentage-text" id="brownPercentage">0.0%</div>
+            </div>
+            
+            <div class="color-row">
+                <div class="color-swatch" style="background-color: black;"></div>
+                <div>Negro:</div>
+                <div class="percentage-bar-container">
+                    <div class="percentage-bar" id="blackBar"></div>
+                </div>
+                <div class="percentage-text" id="blackPercentage">0.0%</div>
+            </div>
+            
+            <div class="acumulado">
+                <div>Acumulado (Naranja + Marrón + Negro): <span id="acumuladoPercentage">0.0%</span></div>
+            </div>
+        </div>
+        
+        <canvas id="canvas"></canvas>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
